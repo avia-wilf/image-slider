@@ -1,3 +1,3 @@
 export class Slide {
-  url: string;
+    url: string;
 }

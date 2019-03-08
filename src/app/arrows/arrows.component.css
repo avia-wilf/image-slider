@@ -1,27 +1,27 @@
 .arrows {
-  position: absolute;
-  top: calc(50% - 55px);
-  font-size: 32px;
-  color: white;
-  opacity: 0;
-  cursor: pointer;
+    position: absolute;
+    top: calc(50% - 55px);
+    font-size: 32px;
+    color: white;
+    opacity: 0;
+    cursor: pointer;
 
-  transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 
 :host-context(.slide:hover) .arrows {
-  display: block;
-  opacity: 0.6;
+    display: block;
+    opacity: 0.6;
 }
 
 :host-context(.slide:hover) .arrows:hover {
-  opacity: 0.9;
+    opacity: 0.9;
 }
 
 .prev {
-  left: 20px;
+    left: 20px;
 }
 
 .next {
-  right: 20px;
+    right: 20px;
 }

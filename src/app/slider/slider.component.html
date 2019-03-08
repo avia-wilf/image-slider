@@ -1,14 +1,14 @@
 <div *ngIf="!slidesService.isEmpty()" class="slider-container">
-  <div  class="image-number">
-    Image {{slidesService.getCurIdx() + 1}} of {{slidesService.getSlidesAmount()}}
-  </div>
-  <div class="slide">
-    <a href="#"></a><img src={{slidesService.getCurSlide().url}} class="image" alt="">
-    <app-arrows></app-arrows>
-    <app-buttons></app-buttons>
-  </div>
+    <div class="image-number">
+        Image {{slidesService.getCurIdx() + 1}} of {{slidesService.getSlidesAmount()}}
+    </div>
+    <div class="slide">
+        <a href="#"></a><img src={{slidesService.getCurSlide().url}} class="image" alt="">
+        <app-arrows></app-arrows>
+        <app-buttons></app-buttons>
+    </div>
 </div>
 <div *ngIf="slidesService.isEmpty()" class="slider-container">
-  No Images
-  <app-buttons></app-buttons>
+    No Images
+    <app-buttons></app-buttons>
 </div>
