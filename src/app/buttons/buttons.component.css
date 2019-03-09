@@ -3,6 +3,10 @@
     margin-top: 20px;
 }
 
+.btn .shadow {
+    box-shadow: 4px 4px 8px #a9a9a99e;
+}
+
 .btn + .btn {
     margin-left: 10px;
 }

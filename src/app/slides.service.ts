@@ -19,6 +19,10 @@ export class SlidesService {
         this.init(_.clone(this.baseSlides));
     }
 
+    genSlideId(): number {
+        return !this.isEmpty() ? Math.max(...this.curSlides.map(slide => slide.id)) + 1 : 1;
+    }
+
     delete(): void {
         const wasLastSlide = this.isLastSlide();
         _.pullAt(this.curSlides, [this.curSlideIdx]);
@@ -28,7 +32,10 @@ export class SlidesService {
     }
 
     duplicate(): void {
-        this.curSlides.splice(this.curSlideIdx, 0, this.curSlides[this.curSlideIdx]);
+        this.curSlides.splice(this.curSlideIdx, 0, {
+            url: this.curSlides[this.curSlideIdx].url,
+            id: this.genSlideId()
+        });
     }
 
     isEmpty(): boolean {

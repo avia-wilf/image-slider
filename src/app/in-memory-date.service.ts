@@ -7,9 +7,9 @@ import {Slide} from './Slide';
 export class InMemoryDataService {
     static getSlides(): Slide[] {
         return [
-            {url: '../assets/images/100A0242.jpg'},
-            {url: '../assets/images/IMG_1207.jpg'},
-            {url: '../assets/images/IMG_9498.jpg'}
+            {url: '../assets/images/100A0242.jpg', id: 1},
+            {url: '../assets/images/IMG_1207.jpg', id: 2},
+            {url: '../assets/images/IMG_9498.jpg', id: 3}
         ];
     }
 }

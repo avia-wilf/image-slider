@@ -1,5 +1,6 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit, Input} from '@angular/core';
 import {SlidesService} from '../slides.service';
+import {Slide} from "../Slide";
 
 @Component({
     selector: 'app-slider',
@@ -7,6 +8,8 @@ import {SlidesService} from '../slides.service';
     styleUrls: ['./slider.component.css']
 })
 export class SliderComponent implements OnInit {
+    @Input() slides: Slide[];
+
     constructor(private slidesService: SlidesService) {
     }
 
@@ -22,5 +25,6 @@ export class SliderComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.slidesService.init(this.slides);
     }
 }
