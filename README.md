@@ -8,7 +8,7 @@ User has 3 possible operations:
 3. Reset the images set.
 
 The pagination is available in 2 ways:
-1. Usiing arrows that appear on the image upon hover.
+1. Using arrows that appear on the image upon hover.
 2. Using right and left keyboard keys.
 
 ## Development server
