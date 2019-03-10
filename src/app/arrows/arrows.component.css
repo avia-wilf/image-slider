@@ -1,16 +1,14 @@
 .arrows {
     position: absolute;
-    top: calc(50% - 55px);
+    top: calc(50% - 45px);
     font-size: 32px;
     color: white;
     opacity: 0;
     cursor: pointer;
-
     transition: opacity 0.3s ease-in-out;
 }
 
 :host-context(.slide:hover) .arrows {
-    display: block;
     opacity: 0.6;
 }
 
