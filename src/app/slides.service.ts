@@ -1,22 +1,30 @@
 import {Injectable} from '@angular/core';
 import {Slide} from './Slide';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 import * as _ from 'lodash';
+import {Observable} from "rxjs";
 
 @Injectable({providedIn: 'root'})
 
 export class SlidesService {
+    private slidesUrl = "api/slides";
     private baseSlides: Slide[] = [];
     private curSlides: Slide[] = [];
-    private curSlideIdx = 0;
+    private curSlideIdx: number = 0;
 
-    init(baseSlides: Slide[]): void {
-        this.baseSlides = baseSlides;
-        this.curSlides = _.clone(baseSlides);
-        this.curSlideIdx = 0;
+    constructor(private http: HttpClient) {
     }
 
-    reset(): void {
-        this.init(_.clone(this.baseSlides));
+    init(): Observable<Slide[]> {
+        return this.http.get<Slide[]>(this.slidesUrl)
+            .pipe(
+                map(slides => {
+                    this.baseSlides = slides;
+                    this.curSlides = _.clone(this.baseSlides);
+                    this.curSlideIdx = 0;
+                    return slides;
+                }));
     }
 
     genSlideId(): number {
@@ -58,6 +66,8 @@ export class SlidesService {
     }
 
     getCurSlide(): Slide {
+        if (this.isEmpty()) return;
+
         return this.curSlides[this.curSlideIdx];
     }
 

@@ -11,6 +11,10 @@ export class ImageComponent implements OnInit {
     constructor(private slidesService: SlidesService) {
     }
 
+    getCurImage(): string {
+        return this.slidesService.getCurSlide().url;
+    }
+
     ngOnInit() {
     }
 }

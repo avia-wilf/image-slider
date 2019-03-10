@@ -10,6 +10,9 @@ import {SliderComponent} from './slider/slider.component';
 import {ButtonsComponent} from './buttons/buttons.component';
 import {ArrowsComponent} from './arrows/arrows.component';
 import { ImageComponent } from './image/image.component';
+import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+import {HttpClientModule} from "@angular/common/http";
+import { ImageNumerationComponent } from './image-numeration/image-numeration.component';
 
 @NgModule({
     declarations: [
@@ -17,12 +20,15 @@ import { ImageComponent } from './image/image.component';
         SliderComponent,
         ButtonsComponent,
         ArrowsComponent,
-        ImageComponent
+        ImageComponent,
+        ImageNumerationComponent
     ],
     imports: [
         BrowserModule,
         AngularFontAwesomeModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        HttpClientModule,
+        HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false})
     ],
     providers: [SlidesService, InMemoryDataService],
     bootstrap: [AppComponent]

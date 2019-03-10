@@ -11,6 +11,23 @@ export class ButtonsComponent implements OnInit {
     constructor(private slidesService: SlidesService) {
     }
 
+    delete(): void {
+        if (this.slidesService.isEmpty()) return;
+
+        this.slidesService.delete();
+    }
+
+    duplicate(): void {
+        if (this.slidesService.isEmpty()) return;
+
+        this.slidesService.duplicate();
+    }
+
+    reset(): void {
+        this.slidesService.init()
+            .subscribe(slides => slides);
+    }
+
     ngOnInit() {
     }
 

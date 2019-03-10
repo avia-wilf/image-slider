@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit, Input} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {SlidesService} from '../slides.service';
 import {Slide} from "../Slide";
 
@@ -8,8 +8,7 @@ import {Slide} from "../Slide";
     styleUrls: ['./slider.component.css']
 })
 export class SliderComponent implements OnInit {
-    @Input() slides: Slide[];
-
+    slides: Slide[];
     constructor(private slidesService: SlidesService) {
     }
 
@@ -24,7 +23,12 @@ export class SliderComponent implements OnInit {
         }
     }
 
+    isEmpty(): boolean {
+        return this.slidesService.isEmpty();
+    }
+
     ngOnInit() {
-        this.slidesService.init(this.slides);
+        this.slidesService.init()
+            .subscribe(slides => this.slides = slides);
     }
 }

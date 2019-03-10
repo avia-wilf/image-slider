@@ -1,8 +1,8 @@
 <div class="buttons">
-    <button *ngIf="!slidesService.isEmpty()" class="btn btn-outline-danger shadow" (click)="slidesService.delete()">Delete
+    <button class="btn btn-outline-danger shadow" (click)="delete()">Delete
     </button>
-    <button *ngIf="!slidesService.isEmpty()" class="btn btn-outline-success shadow" (click)="slidesService.duplicate()">
+    <button class="btn btn-outline-success shadow" (click)="duplicate()">
         Duplicate
     </button>
-    <button class="btn btn-outline-primary shadow" (click)="slidesService.reset()">Reset</button>
+    <button class="btn btn-outline-primary shadow" (click)="reset()">Reset</button>
 </div>
