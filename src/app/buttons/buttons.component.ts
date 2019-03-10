@@ -11,15 +11,15 @@ export class ButtonsComponent implements OnInit {
     constructor(private slidesService: SlidesService) {
     }
 
-    delete(): void {
-        if (this.slidesService.isEmpty()) return;
+    canPerformChange(): boolean {
+        return !this.slidesService.isEmpty();
+    }
 
+    delete(): void {
         this.slidesService.delete();
     }
 
     duplicate(): void {
-        if (this.slidesService.isEmpty()) return;
-
         this.slidesService.duplicate();
     }
 

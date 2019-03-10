@@ -1,7 +1,7 @@
 <div class="buttons">
-    <button class="btn btn-outline-danger shadow" (click)="delete()">Delete
+    <button *ngIf="canPerformChange()" class="btn btn-outline-danger shadow" (click)="delete()">Delete
     </button>
-    <button class="btn btn-outline-success shadow" (click)="duplicate()">
+    <button *ngIf="canPerformChange()" class="btn btn-outline-success shadow" (click)="duplicate()">
         Duplicate
     </button>
     <button class="btn btn-outline-primary shadow" (click)="reset()">Reset</button>
